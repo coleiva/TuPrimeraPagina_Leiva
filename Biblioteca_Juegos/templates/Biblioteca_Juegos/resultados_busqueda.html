@@ -1,0 +1,19 @@
+{% extends 'Biblioteca_Juegos/base.html' %}
+
+{% block title %}Resultados{% endblock %}
+
+{% block content %}
+    <h2>Resultados de la Búsqueda</h2>
+    {% if resultados %}
+        <ul class="list-group">
+            {% for juego in resultados %}
+                <li class="list-group-item">
+                    <strong>{{ juego.nombre }}</strong> ({{ juego.categoria }}, {{ juego.lanzamiento }})<br>
+                    <em>{{ juego.resena }}</em>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se encontraron resultados.</p>
+    {% endif %}
+{% endblock %}
