@@ -1,0 +1,15 @@
+{% extends 'Biblioteca_Juegos/base.html' %}
+
+{% block title %}Agregar Juego Nintendo{% endblock %}
+
+{% block content %}
+<h2>Agregar Juego Nintendo</h2>
+{% if mensaje %}
+<div class="alert alert-success">{{ mensaje }}</div>
+{% endif %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ nintendo_form.as_p }}
+    <button type="submit" class="btn btn-success">Guardar Nintendo</button>
+</form>
+{% endblock %}

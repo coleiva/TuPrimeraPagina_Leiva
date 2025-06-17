@@ -6,13 +6,17 @@
     <h2>Resultados de la Búsqueda</h2>
     {% if resultados %}
         <ul class="list-group">
-            {% for juego in resultados %}
-                <li class="list-group-item">
-                    <strong>{{ juego.nombre }}</strong> ({{ juego.categoria }}, {{ juego.lanzamiento }})<br>
-                    <em>{{ juego.resena }}</em>
-                </li>
-            {% endfor %}
-        </ul>
+    {% for juego in resultados %}
+        <li class="list-group-item">
+            <h5><strong>{{ juego.nombre }}</strong></h5>
+            {% if juego.imagen %}
+                <img src="{{ juego.imagen.url }}" alt="{{ juego.nombre }}" class="img-thumbnail" style="max-width: 200px;">
+            {% endif %}
+            <p>{{ juego.consola }} - {{ juego.categoria }} - {{ juego.lanzamiento }}</p>
+            <p><em>{{ juego.reseña }}</em></p>
+        </li>
+    {% endfor %}
+</ul>
     {% else %}
         <p>No se encontraron resultados.</p>
     {% endif %}
